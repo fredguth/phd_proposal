@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{goodfellow}
+Ian~J. Goodfellow, Yoshua Bengio, and Aaron~C. Courville.
+\newblock {\em Deep Learning}.
+\newblock Adaptive computation and machine learning. {MIT} Press, 2016.
+
+\bibitem{horn}
+Grant~Van Horn and Pietro Perona.
+\newblock The devil is in the tails: Fine-grained classification in the wild.
+\newblock {\em CoRR}, abs/1709.01450, 2017.
+
+\bibitem{huang1996}
+T~Huang.
+\newblock Computer vision: Evolution and promise, 1996.
+
+\bibitem{alexnet}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems 25}, pages
+  1097--1105. Curran Associates, Inc., 2012.
+
+\bibitem{fei}
+J.~Deng L.~Fei-Fei.
+\newblock Where have we been? where are we going?, 2017.
+\newblock [Online; accessada 28 de Junho de 2018].
+
+\end{thebibliography}

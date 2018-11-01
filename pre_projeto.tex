@@ -1,0 +1,211 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Doctoral Proposal
+% LaTeX Template
+% Version 1.0 (25/10/18)
+%
+% Author: Fred Guth (fredguth@fredguth.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+12pt, % Default font size is 10pt, can alternatively be 11pt or 12pt
+a4paper, % Alternatively letterpaper for US letter
+onecolumn, % Alternatively twocolumn
+% portrait % Alternatively landscape
+]{article}
+
+\input{structure.tex} % Input the file specifying the document layout and structure
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE INFORMATION
+%----------------------------------------------------------------------------------------
+
+\doctitle{Transferência de Aprendizado em Visão Computacional} % The title of the proposal
+
+\datenotesstarted{\today} % The date when these notes were first made
+\docdate{\datenotesstarted; rev. \today} % The date when the notes were lasted updated (automatically the current date)
+
+\docauthor{Frederico Guth} % Your name
+\authorid{273.723.818-86}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\pagestyle{myheadings} % Use custom headers
+\markright{Frederico Guth --- Transferência de Aprendizado para Visão Computacional} % Place the article information into the header
+
+%----------------------------------------------------------------------------------------
+%	PRINT ARTICLE INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{plain} % Plain formatting on the first page
+
+\printcover % Print the title
+
+\begin{center}
+
+  \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+
+  \bigskip
+
+  \textbf{\Large{\doctitle}}
+  
+  \bigskip
+  
+  \docauthor
+
+  \bigskip
+  
+
+  \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE NOTES
+%----------------------------------------------------------------------------------------
+\thispagestyle{plain}
+\setlist[description]{font=\bfseries}
+\setcounter{page}{2}
+\pagenumbering{arabic}
+\onehalfspacing
+
+%------------------------------------------------
+\section{Introdução}
+
+
+Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público: reconhecimento de pessoas, lugares e objetos com acurácia super-humana, segmentação semântica de cenas em tempo real possibilitando carros autônomos, diagnóstico e segmentação de tumores em imagens de ressonância magnética, sistemas capazes de colocar o rosto de uma pessoa em personagens de videos, visão através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: "Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante"\cite{huang1996}, dizia T.S. Huang em 1996.  
+
+O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012\cite{goodfellow}. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
+\begin{enumerate}
+  \item redes convolucionais profundas, em que características visuais (\textit{features}) são aprendidas dos dados ao invés de manualmente elaboradas;
+  \item o barateamento do custo computacional de treinamento com GPUs;
+  \item a disponibilidade de bancos de imagens de larga escala com milhões de imagens e milhares de classes bem anotadas. 
+\end{enumerate}
+Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. 
+
+O momento crucial na melhoria meteórica dos resultados em reconhecimento de objetos se deu em 2012, no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC)\cite{goodfellow}. O time liderado por Alex Krizhevsky foi o primeiro a usar redes neurais convolucionais profundas (RCPs) na competição e ganhou por larga margem\cite{alexnet}. Desde então, técnicas baseadas em RCPs tem sido as mais bem sucedidas para este problema. É importante salientar, entretanto, que tal feito não seria possível se não houvesse uma banco de imagens de larga escala, manualmente anotada e com centenas de imagens por classe, como a ImageNet.
+
+During the past five years we have witnessed dramatic improvement in the performance
+of visual recognition algorithms [42]. Human performance has been approached
+or achieved in many instances. Three concurrent developments have enabled
+such progress: (a) the invention of ‘deep network’ algorithms where visual
+computation is learned from the data rather than hand-crafted by experts [14, 27, 29],
+(b) the design and construction of large and well annotated datasets [8, 11, 13, 30]
+supplying researchers with a sufficient amount of data to train learning-based algorithms,
+and (c) the availability of inexpensive and ever more powerful computers,
+such as GPUs [33], for algorithm training.
+
+\begin{itemize}
+
+  \item eyes tell the brain 
+  \item avanço dos últimos anos
+  \item citar paper cancer e pele
+  \item perspectiva de história recente com péssimos resultados. survey. 
+  \item hype torna difícil colocar o pé no chão e ver que há muito ainda a ser entendido
+  \item mas datasets continuam caros, difíceis e sujeitos a viés. 
+  \item recente: cvpr 2018  \item> tranfer learning. survey ultrapassada.
+  \item aplicação carros autônomos, segmentação 3D de MRIs
+  \item taskonomy
+\end{itemize}
+
+
+\subsection{Bancos de Imagens para Reconhecimento de Objetos}
+
+Bancos de imagens são vitais para a pesquisa em reconhecimento de objetos. Pode-se dizer que foram um componente chave para o metéorico progresso obtido nos últimos anos, não apenas como fonte de dados para treinamento, mas também como meio de comparação de resultados de pesquisa
+Diante deste dilema, uma maneira de se avaliar o viés de bancos de imagens é checar a generalização entre bancos de imagens: por exemplo, treinar com imagens Pascal VOC e testar com imagens da ImageNet
+
+Entretanto, a questão da generalização de domínio é tratada como um caso especial do reconhecimento de objetos chamado adaptação de domínio e é menosprezada na grande maioria dos desenvolvimentos de bases de imagens. Praticamente não se encontra comparações de resultados em-domínio (\textit{in-domain}) e entre-domínios (\textit{cross domain}) para os algoritmos baseados em redes neurais convolucionais profundas. 
+
+%------------------------------------------------
+
+\section{Justificativa}
+
+The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+
+The main take a way is that tackling an important problem is an attention grabber. 
+
+This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
+
+I believe it is worth investigating this problem and maybe trying to use the insights of Style Transfer
+
+%------------------------------------------------
+
+\section{Objetivos}
+
+The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+
+The main take a way is that tackling an important problem is an attention grabber. 
+
+This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
+
+I believe it is worth investigating this problem and maybe trying to use the insight
+
+%------------------------------------------------
+
+\section{Revisão da Literatura}
+
+The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+
+The main take a way is that tackling an important problem is an attention grabber. 
+
+This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
+
+I believe it is worth investigating this problem and maybe trying to use the insight
+
+%------------------------------------------------
+
+\section{Metodologia}
+
+The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+
+The main take a way is that tackling an important problem is an attention grabber. 
+
+This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
+
+I believe it is worth investigating this problem and maybe trying to use the insight
+
+%------------------------------------------------
+
+\section{Plano de Trabalho}
+
+The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+
+The main take a way is that tackling an important problem is an attention grabber. 
+
+This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
+
+I believe it is worth investigating this problem and maybe trying to use the insight
+
+%------------------------------------------------
+
+\section{Cronograma}
+
+The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+
+The main take a way is that tackling an important problem is an attention grabber. 
+
+This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
+
+I believe it is worth investigating this problem and maybe trying to use the insight
+
+
+%
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{Bibliografia} % Change the default bibliography title
+
+\bibliography{references} % Input your bibliography file
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

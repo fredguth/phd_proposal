@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paper Notes
+% Structure Specification File
+% Version 1.0 (25/10/18)
+%
+% Author: Fred Guth (fredguth@fredguth.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+\usepackage[includeheadfoot,columnsep=2cm, left=1in, right=1in, top=.5in, bottom=.5in]{geometry} % Margins
+
+\usepackage[utf8]{inputenc}
+% \usepackage{XCharter} % XCharter as the main font
+\usepackage{times}
+\usepackage{booktabs}
+% \usepackage{natbib} % Use natbib to manage the reference
+\usepackage{bibentry}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\nobibliography*
+\bibliographystyle{plain} % Citation style
+\usepackage{setspace}
+\usepackage[brazil]{babel} % Use english by default
+
+%----------------------------------------------------------------------------------------
+%	CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\doctitle}[1]{\renewcommand{\doctitle}{#1}} % Define a command for storing the proposal title
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create
+\newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}} % Define a command to store the date when notes were first made
+\newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}} % Define a command to store the date line in the title
+
+\newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}} % Define a command for storing the article notes author
+\newcommand{\authorid}[1]{\renewcommand{\authorid}{#1}} % Define a command for storing the author id
+\setlist[description]{font=\normalfont}
+
+% Define a command for the structure of the document cover page
+\newcommand{\printcover}{
+\pagenumbering{gobble}
+
+
+\begin{center}
+
+  \bigskip
+
+  PROGRAMA DE PÓS-GRADUAÇÃO EM INFORMÁTICA
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+\end{center}
+
+
+\begin{description}[align=left,labelwidth=5cm]
+  
+    \item[Nome:] \docauthor
+    
+    \item[CPF:] \authorid
+  
+\end{description}
+  
+
+  \bigskip
+  \bigskip
+  
+\textbf{Proposta de Projeto de Pesquisa}
+  \bigskip
+  \bigskip
+
+  
+\begin{description}[align=left,labelwidth=5cm]
+  
+    \item[Título:] \doctitle
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \item[Linha de Pesquisa:] Sistemas de Computação
+    
+    \item[Área de Pesquisa:] Visão Computacional
+  
+\end{description}
+
+\newpage
+
+
+}
+
+%----------------------------------------------------------------------------------------
+%	STRUCTURE MODIFICATIONS
+%----------------------------------------------------------------------------------------
+
+\setlength{\parskip}{3pt} % Slightly increase spacing between paragraphs
+
+% Uncomment to center section titles
+%\usepackage{sectsty}
+%\sectionfont{\centering}
+
+% Uncomment for Roman numerals for section numbers
+%\renewcommand\thesection{\Roman{section}}
