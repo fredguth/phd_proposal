@@ -81,28 +81,19 @@ onecolumn, % Alternatively twocolumn
 \section{Introdução}
 
 
-Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público: reconhecimento de pessoas, lugares e objetos com acurácia super-humana, segmentação semântica de cenas em tempo real possibilitando carros autônomos, diagnóstico e segmentação de tumores em imagens de ressonância magnética, sistemas capazes de colocar o rosto de uma pessoa em personagens de videos, visão através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: "Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante"\cite{huang1996}, dizia T.S. Huang em 1996.  
+Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público: reconhecimento de pessoas, lugares e objetos com acurácia super-humana, segmentação semântica de cenas em tempo real possibilitando carros autônomos, diagnóstico e segmentação de tumores em imagens de ressonância magnética, visão através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: "Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante"\cite{huang1996}, dizia T.S. Huang em 1996.  
 
-O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012\cite{goodfellow}. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
-\begin{enumerate}
+O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012\cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
+\begin{enumerate*}[label=(\alph*)]
   \item redes convolucionais profundas, em que características visuais (\textit{features}) são aprendidas dos dados ao invés de manualmente elaboradas;
-  \item o barateamento do custo computacional de treinamento com GPUs;
-  \item a disponibilidade de bancos de imagens de larga escala com milhões de imagens e milhares de classes bem anotadas. 
-\end{enumerate}
-Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. 
+  \item barateamento do custo computacional para treinamento de algoritmos;
+  \item construção de bancos de imagens de larga escala com milhões de imagens e milhares de classes bem anotadas. 
+\end{enumerate*}
 
-O momento crucial na melhoria meteórica dos resultados em reconhecimento de objetos se deu em 2012, no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC)\cite{goodfellow}. O time liderado por Alex Krizhevsky foi o primeiro a usar redes neurais convolucionais profundas (RCPs) na competição e ganhou por larga margem\cite{alexnet}. Desde então, técnicas baseadas em RCPs tem sido as mais bem sucedidas para este problema. É importante salientar, entretanto, que tal feito não seria possível se não houvesse uma banco de imagens de larga escala, manualmente anotada e com centenas de imagens por classe, como a ImageNet.
+Cada vez mais são os dados, e não algoritmos,o fator limitante da aplicação prática e desenvolvimento da inteligência artificial\cite{imagenet}. Entretanto, uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição estatı́stica assintótica, conhecida como cauda longa, o que torna bastante difícil a coleta de dados para bancos de dados representativos. Além disso, ainda há o problema do alto custo de rotulação de bases; em diversas áreas de aplicação, como por exemplo na medicina, dados bem rotulados são extremamente difíceis de serem obtidos e pode-se levar anos para obter dados de poucas dezenas de amostras.
 
-During the past five years we have witnessed dramatic improvement in the performance
-of visual recognition algorithms [42]. Human performance has been approached
-or achieved in many instances. Three concurrent developments have enabled
-such progress: (a) the invention of ‘deep network’ algorithms where visual
-computation is learned from the data rather than hand-crafted by experts [14, 27, 29],
-(b) the design and construction of large and well annotated datasets [8, 11, 13, 30]
-supplying researchers with a sufficient amount of data to train learning-based algorithms,
-and (c) the availability of inexpensive and ever more powerful computers,
-such as GPUs [33], for algorithm training.
 
+have learned to converse, drive cars, beat video games and Go champions, dream, paint pictures and help make scientific discoveries, they have also confounded their human creators, who never expected so-called “deep-learning” algorithms to work so well. 
 \begin{itemize}
 
   \item eyes tell the brain 
