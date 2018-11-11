@@ -82,7 +82,7 @@ onecolumn, % Alternatively twocolumn
 
 
 Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público:  são capazes de reconher de pessoas, lugares e objetos com acurácia super-humana\cite{fei}, diagnósticar câncer de pele tão bem quanto dermatologistas\cite{fred}, segmentar semanticamente cenas em tempo real para carros autônomos, localizar tumores em imagens de ressonância magnética, ver através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: 
-\begin{quote}"Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante"\end{quote} dizia T.S. Huang em 1996 \cite{huang1996}.  
+\begin{quote}"Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante" \hfill ---T. S. Huang,  1996 \cite{huang1996}.  \end{quote}
 
 O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012 \cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
 \begin{enumerate*}[label=(\alph*)]
@@ -91,21 +91,22 @@ O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsk
   \item construção de bancos de imagens de larga escala com milhões de imagens e milhares de classes bem anotadas. 
 \end{enumerate*}
 
-Neste contexto, é compreensível se iludir com o sensacionalismo e até pensar que \textit{Deep Learning} para Visão Computacional seja uma área "resolvida" \textemdash longe disso. Os melhores casos de sucesso foram desenvolvidos exclusivamente para uma tarefa, em um único domínio, ou seja, sobre a premissa básica que na prática, os dados com os quais o modelo será testado são do mesmo espaço de características (\textit{feature space}) e possuem a mesma distribuição que os dados de treinamento\cite{Pan}. Em outras palavras, temos algoritmos cada vez melhores que aprendem a encontrar padrões a partir de uma grande quantidade de dados rotulados, mas que ainda são deficientes na capacidade de generalizar para condições diferentes daquelas encontradas no treinamento. 
+Neste contexto, é compreensível se iludir com o sensacionalismo e até pensar que Aprendizado Profundo (DL\footnote{do inglês, Deep Learning}) para Visão Computacional seja uma área "resolvida" e que agora virá um novo "inverno" no progresso de Aprendizado de Máquina (ML \footnote{do inglês, Machine Learning})\textemdash longe disso. Os melhores casos de sucesso foram desenvolvidos exclusivamente para uma tarefa, em um único domínio, ou seja, sobre a premissa básica que na prática, os dados com os quais o modelo será testado são do mesmo espaço de características (\textit{feature space}) e possuem a mesma distribuição que os dados de treinamento\cite{Pan}. Em outras palavras, temos algoritmos cada vez melhores que aprendem a encontrar padrões a partir de uma grande quantidade de dados rotulados, mas que ainda são deficientes na capacidade de generalizar para condições diferentes daquelas encontradas no treinamento. 
 
 Ao mesmo tempo que bancos de imagens de larga escala são um dos componentes chave para progresso, cada vez mais a necessidade de dados são um fator limitante para aplicação prática de inteligência artificial.  Uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição de cauda longa, o que torna bastante difícil a coleta representativa de dados. Há também o  alto custo de rotulação: em diversas áreas de aplicação, e.g. na medicina, dados bem rotulados são extremamente difíceis de serem obtidos e pode-se levar anos para obter poucas dezenas de amostras. O mundo real é variado, os modelos encontrarão, na prática, diversos cenários para os quais não foram treinados.
 
-Transferência de aprendizado nos permite lidar com a insuficiência de dados para treinamento, usando modelos pré-treinados para um outro domínio ou tarefa. Essa capacidade é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com a cauda longa, precisamos tranferir aprendizado.
+Transferência de aprendizado (TL\footnote{do inglês, \textit{Transfer Learning}}), nos permite lidar com a insuficiência de dados para treinamento, usando modelos pré-treinados para um outro domínio ou tarefa. Essa capacidade é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com um mundo cauda longa, precisamos aprender a tranferir aprendizado.
 
 %------------------------------------------------
 
 \section{Justificativa}
+O inconteste sucesso obtido nos últimos anos com aplicações de ML teve como principal motor o uso de aprendizado supervisionado em redes neurais profundas. Esse paradigma é dependente da disponibilidade de dados bem rotulados que são caros e difíceis de obter. A próxima fronteira está em lidar com problemas para os quais há insuficiência de dados rotulados. Isso leva a especialistas da área a eleger TL como um dos campos mais promissores para o futuro:
+\begin{quote} "Transferência de Aprendizado será o próximo motor do sucesso comercial com Aprendizado de Máquinas." \hfill ---Andrew Ng, Tutorial NIPS 2016 \cite{ANg}
+\end{quote}
 
-- supervisionado inconteste sucesso
-- futuro depende de TL
-- quote Andrew Ng
-- x\% dos n papers mais citados usam TL, mas não há um corpo didática bem consolidado. diferenças de nomenclatura
-- survey do Pan defasada
+Entretanto, ao mesmo tempo que há um grande interesse acadêmico no assunto, a se destacar que x\% dos papers da importante CVRP\footnote{Conference on Computer Vision and Pattern Recognition} de 2018 usam TL, 
+a maioria das aplicações comerciais ainda não utilizam a técnica. 
+
 
 
 %------------------------------------------------
