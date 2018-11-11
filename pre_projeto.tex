@@ -81,51 +81,32 @@ onecolumn, % Alternatively twocolumn
 \section{Introdução}
 
 
-Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público: reconhecimento de pessoas, lugares e objetos com acurácia super-humana, segmentação semântica de cenas em tempo real possibilitando carros autônomos, diagnóstico e segmentação de tumores em imagens de ressonância magnética, visão através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: "Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante"\cite{huang1996}, dizia T.S. Huang em 1996.  
+Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público:  são capazes de reconher de pessoas, lugares e objetos com acurácia super-humana\cite{fei}, diagnósticar câncer de pele tão bem quanto dermatologistas\cite{fred}, segmentar semanticamente cenas em tempo real para carros autônomos, localizar tumores em imagens de ressonância magnética, ver através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: 
+\begin{quote}"Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante"\end{quote} dizia T.S. Huang em 1996 \cite{huang1996}.  
 
-O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012\cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
+O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012 \cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
 \begin{enumerate*}[label=(\alph*)]
   \item redes convolucionais profundas, em que características visuais (\textit{features}) são aprendidas dos dados ao invés de manualmente elaboradas;
   \item barateamento do custo computacional para treinamento de algoritmos;
   \item construção de bancos de imagens de larga escala com milhões de imagens e milhares de classes bem anotadas. 
 \end{enumerate*}
 
-Cada vez mais são os dados, e não algoritmos,o fator limitante da aplicação prática e desenvolvimento da inteligência artificial\cite{imagenet}. Entretanto, uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição estatı́stica assintótica, conhecida como cauda longa, o que torna bastante difícil a coleta de dados para bancos de dados representativos. Além disso, ainda há o problema do alto custo de rotulação de bases; em diversas áreas de aplicação, como por exemplo na medicina, dados bem rotulados são extremamente difíceis de serem obtidos e pode-se levar anos para obter dados de poucas dezenas de amostras.
+Neste contexto, é compreensível se iludir com o sensacionalismo e até pensar que \textit{Deep Learning} para Visão Computacional seja uma área "resolvida" \textemdash longe disso. Os melhores casos de sucesso foram desenvolvidos exclusivamente para uma tarefa, em um único domínio, ou seja, sobre a premissa básica que na prática, os dados com os quais o modelo será testado são do mesmo espaço de características (\textit{feature space}) e possuem a mesma distribuição que os dados de treinamento\cite{Pan}. Em outras palavras, temos algoritmos cada vez melhores que aprendem a encontrar padrões a partir de uma grande quantidade de dados rotulados, mas que ainda são deficientes na capacidade de generalizar para condições diferentes daquelas encontradas no treinamento. 
 
+Ao mesmo tempo que bancos de imagens de larga escala são um dos componentes chave para progresso, cada vez mais a necessidade de dados são um fator limitante para aplicação prática de inteligência artificial.  Uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição de cauda longa, o que torna bastante difícil a coleta representativa de dados. Há também o  alto custo de rotulação: em diversas áreas de aplicação, e.g. na medicina, dados bem rotulados são extremamente difíceis de serem obtidos e pode-se levar anos para obter poucas dezenas de amostras. O mundo real é variado, os modelos encontrarão, na prática, diversos cenários para os quais não foram treinados.
 
-have learned to converse, drive cars, beat video games and Go champions, dream, paint pictures and help make scientific discoveries, they have also confounded their human creators, who never expected so-called “deep-learning” algorithms to work so well. 
-\begin{itemize}
-
-  \item eyes tell the brain 
-  \item avanço dos últimos anos
-  \item citar paper cancer e pele
-  \item perspectiva de história recente com péssimos resultados. survey. 
-  \item hype torna difícil colocar o pé no chão e ver que há muito ainda a ser entendido
-  \item mas datasets continuam caros, difíceis e sujeitos a viés. 
-  \item recente: cvpr 2018  \item> tranfer learning. survey ultrapassada.
-  \item aplicação carros autônomos, segmentação 3D de MRIs
-  \item taskonomy
-\end{itemize}
-
-
-\subsection{Bancos de Imagens para Reconhecimento de Objetos}
-
-Bancos de imagens são vitais para a pesquisa em reconhecimento de objetos. Pode-se dizer que foram um componente chave para o metéorico progresso obtido nos últimos anos, não apenas como fonte de dados para treinamento, mas também como meio de comparação de resultados de pesquisa
-Diante deste dilema, uma maneira de se avaliar o viés de bancos de imagens é checar a generalização entre bancos de imagens: por exemplo, treinar com imagens Pascal VOC e testar com imagens da ImageNet
-
-Entretanto, a questão da generalização de domínio é tratada como um caso especial do reconhecimento de objetos chamado adaptação de domínio e é menosprezada na grande maioria dos desenvolvimentos de bases de imagens. Praticamente não se encontra comparações de resultados em-domínio (\textit{in-domain}) e entre-domínios (\textit{cross domain}) para os algoritmos baseados em redes neurais convolucionais profundas. 
+Transferência de aprendizado nos permite lidar com a insuficiência de dados para treinamento, usando modelos pré-treinados para um outro domínio ou tarefa. Essa capacidade é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com a cauda longa, precisamos tranferir aprendizado.
 
 %------------------------------------------------
 
 \section{Justificativa}
 
-The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+- supervisionado inconteste sucesso
+- futuro depende de TL
+- quote Andrew Ng
+- x\% dos n papers mais citados usam TL, mas não há um corpo didática bem consolidado. diferenças de nomenclatura
+- survey do Pan defasada
 
-The main take a way is that tackling an important problem is an attention grabber. 
-
-This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
-
-I believe it is worth investigating this problem and maybe trying to use the insights of Style Transfer
 
 %------------------------------------------------
 
@@ -142,6 +123,15 @@ I believe it is worth investigating this problem and maybe trying to use the ins
 %------------------------------------------------
 
 \section{Revisão da Literatura}
+
+\begin{itemize}
+
+
+  \item recente: cvpr 2018  \item> tranfer learning. survey ultrapassada.
+  \item taskonomy
+\end{itemize}
+
+
 
 The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
 

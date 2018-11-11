@@ -1,14 +1,15 @@
 # Fdb version 3
-["bibtex pre_projeto"] 1541101564 "pre_projeto.aux" "pre_projeto.bbl" "pre_projeto" 1541101564
+["bibtex pre_projeto"] 1541906942 "pre_projeto.aux" "pre_projeto.bbl" "pre_projeto" 1541907204
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "pre_projeto.aux" 1541101564 992 1777bc32e91bb074314c52b5b88ce15c ""
+  "pre_projeto.aux" 1541907204 917 e9161ef4f8543ddca7fc4ba847e577b0 ""
   "pre_projeto.bcf" 0 -1 0 ""
-  "references.bib" 1541100348 8036 1d037bbad5ff5d1ffcd2b286747742c9 ""
+  "references.bib" 1541905416 9010 ff67d274b3969e5355e2e8fa5d6d3623 ""
   (generated)
   "pre_projeto.bbl"
-["pdflatex"] 1541101564 "/home/fredguth/PhD/PhDProposal/pre_projeto.tex" "pre_projeto.pdf" "pre_projeto" 1541101564
+  "pre_projeto.blg"
+["pdflatex"] 1541907204 "/home/fredguth/PhD/PhDProposal/pre_projeto.tex" "pre_projeto.pdf" "pre_projeto" 1541907204
   "/etc/texmf/web2c/texmf.cnf" 1540518593 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/fredguth/PhD/PhDProposal/pre_projeto.tex" 1541101523 12440 d62cb5bde0403a44d6a3c3470f8e6a44 ""
+  "/home/fredguth/PhD/PhDProposal/pre_projeto.tex" 1541907204 11273 15a31fa66b1dce7bfb403aba30614921 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1480098689 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -59,11 +60,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1540519727 2361841 4b42e2bc27857781339feb9b07325f22 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1541096216 1010020 dda358db49ade4f0b68acac3b5c376eb ""
-  "pre_projeto.aux" 1541101564 992 1777bc32e91bb074314c52b5b88ce15c ""
-  "pre_projeto.bbl" 1541101564 981 73856d599910eb079c93fa3555902fa2 "bibtex pre_projeto"
-  "pre_projeto.tex" 1541101523 12440 d62cb5bde0403a44d6a3c3470f8e6a44 ""
+  "pre_projeto.aux" 1541907204 917 e9161ef4f8543ddca7fc4ba847e577b0 ""
+  "pre_projeto.bbl" 1541906942 1489 b5129fd6dfea62772e875c42deb244ab "bibtex pre_projeto"
+  "pre_projeto.tex" 1541907204 11273 15a31fa66b1dce7bfb403aba30614921 ""
   "structure.tex" 1541100666 3106 c11861882cedbba9a9f04b813d4288b6 ""
   (generated)
+  "pre_projeto.log"
   "pre_projeto.pdf"
   "pre_projeto.aux"
-  "pre_projeto.log"

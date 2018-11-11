@@ -26,4 +26,17 @@ J.~Deng L.~Fei-Fei.
 \newblock Where have we been? where are we going?, 2017.
 \newblock [Online; accessada 28 de Junho de 2018].
 
+\bibitem{Pan}
+Sinno~Jialin Pan and Qiang Yang.
+\newblock A survey on transfer learning.
+\newblock {\em IEEE Trans. on Knowl. and Data Eng.}, 22(10):1345--1359, October
+  2010.
+
+\bibitem{fred}
+Saining Xie, Ross~B. Girshick, Piotr Doll{\'{a}}r, Zhuowen Tu, and Kaiming He.
+\newblock Aggregated residual transformations for deep neural networks.
+\newblock In {\em 2017 {IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR} 2017, Honolulu, HI, USA, July 21-26, 2017}, pages
+  5987--5995, 2017.
+
 \end{thebibliography}
