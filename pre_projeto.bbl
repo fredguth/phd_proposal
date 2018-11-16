@@ -5,6 +5,12 @@ Ian~J. Goodfellow, Yoshua Bengio, and Aaron~C. Courville.
 \newblock {\em Deep Learning}.
 \newblock Adaptive computation and machine learning. {MIT} Press, 2016.
 
+\bibitem{KHe}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Delving deep into rectifiers: Surpassing human-level performance on
+  imagenet classification.
+\newblock {\em CoRR}, abs/1502.01852, 2015.
+
 \bibitem{horn}
 Grant~Van Horn and Pietro Perona.
 \newblock The devil is in the tails: Fine-grained classification in the wild.

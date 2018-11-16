@@ -80,11 +80,10 @@ onecolumn, % Alternatively twocolumn
 %------------------------------------------------
 \section{Introdução}
 
-
 Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público:  são capazes de reconher de pessoas, lugares e objetos com acurácia super-humana\cite{fei}, diagnósticar câncer de pele tão bem quanto dermatologistas\cite{fred}, segmentar semanticamente cenas em tempo real para carros autônomos, localizar tumores em imagens de ressonância magnética, ver através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: 
 \begin{quote}"Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante" \hfill ---T. S. Huang,  1996 \cite{huang1996}.  \end{quote}
 
-O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012 \cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\%. Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
+O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012 \cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\% (menos da metade do erro humano \cite{KHe}). Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
 \begin{enumerate*}[label=(\alph*)]
   \item redes convolucionais profundas, em que características visuais (\textit{features}) são aprendidas dos dados ao invés de manualmente elaboradas;
   \item barateamento do custo computacional para treinamento de algoritmos;
@@ -95,17 +94,26 @@ Neste contexto, é compreensível se iludir com o sensacionalismo e até pensar 
 
 Ao mesmo tempo que bancos de imagens de larga escala são um dos componentes chave para progresso, cada vez mais a necessidade de dados são um fator limitante para aplicação prática de inteligência artificial.  Uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição de cauda longa, o que torna bastante difícil a coleta representativa de dados. Há também o  alto custo de rotulação: em diversas áreas de aplicação, e.g. na medicina, dados bem rotulados são extremamente difíceis de serem obtidos e pode-se levar anos para obter poucas dezenas de amostras. O mundo real é variado, os modelos encontrarão, na prática, diversos cenários para os quais não foram treinados.
 
-Transferência de aprendizado (TL\footnote{do inglês, \textit{Transfer Learning}}), nos permite lidar com a insuficiência de dados para treinamento, usando modelos pré-treinados para um outro domínio ou tarefa. Essa capacidade é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com um mundo cauda longa, precisamos aprender a tranferir aprendizado.
+Transferência de aprendizado (TL\footnote{do inglês, \textit{Transfer Learning}}), nos permite lidar com a insuficiência de dados para treinamento, usando conhecimento adquirido em um outro domínio ou tarefa. Essa capacidade é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com um mundo cauda longa, precisamos aprender a tranferir aprendizado.
+
+\subsection{Definição Formal}
+Transferência de Aprendizado envolve os conceitos de \textit{domínio} e \textit{tarefa}. Seguindo a notação de \cite{Pan}, um domínio $\mathcal{D}$ é composto de um espaço de características $\mathcal{X}\subset R^d$ e uma distribuição marginal $P(\mathrm{X})$, onde $\mathrm{X}=\{x_1, \dots, x_n\}\in\mathcal{X} $. Para um problema de classificação de imagens, por exemplo, $\mathcal{X}$ é o espaço de todas possíveis representações de imagens, com suas dimensões e canais, $x_i$ é uma imagem e $X$ é o \textit{dataset} de treinamento. 
+
+Dado um domínio $\mathcal{D}=\{\mathcal{X}, P(X)\}$, uma tarefa $\mathcal{T}$ é definida pelo espaço de rótulos $\mathcal{Y}$ com distribuição condicional $P(\mathrm{Y}|\mathrm{X})$, ou seja, $\mathcal{T}=\{\mathcal{Y}, f(\cdot)\}$, onde $f(\cdot)$ é uma função objetivo que dado um $x_i \in \mathcal{D}$, prediz seu correspondente $y_i \in \mathcal{Y}$. 
+
+Dado um domínio fonte $\mathcal{D_S}$ e uma tarefa $\mathcal{T_S}$, um domínio destino $\mathcal{D_T}$ e uma tarefa $\mathcal{T_T}$, \textbf{transferência de aprendizado} objetiva auxiliar o aprendizado da função de predição $f_T(\cdot)$ em  $\mathcal{D_T}$ usando conhecimento de $\mathcal{D_S}$ e $\mathcal{T_S}$, onde $\mathcal{D_S}\neq\mathcal{D_T}$ ou $\mathcal{T_S}\neq\mathcal{T_T}$.
+
 
 %------------------------------------------------
 
 \section{Justificativa}
-O inconteste sucesso obtido nos últimos anos com aplicações de ML teve como principal motor o uso de aprendizado supervisionado em redes neurais profundas. Esse paradigma é dependente da disponibilidade de dados bem rotulados que são caros e difíceis de obter. A próxima fronteira está em lidar com problemas para os quais há insuficiência de dados rotulados. Isso leva a especialistas da área a eleger TL como um dos campos mais promissores para o futuro:
+O inconteste sucesso obtido nos últimos anos com aplicações de ML teve como principal motor o uso de aprendizado supervisionado em redes neurais profundas. Este paradigma é dependente da disponibilidade de dados bem rotulados que são caros e difíceis de obter. A próxima fronteira está em lidar com problemas para os quais há insuficiência de dados rotulados. Isso leva a especialistas da área a eleger TL como um dos campos mais promissores para o futuro:
 \begin{quote} "Transferência de Aprendizado será o próximo motor do sucesso comercial com Aprendizado de Máquinas." \hfill ---Andrew Ng, Tutorial NIPS 2016 \cite{ANg}
 \end{quote}
 
-Entretanto, ao mesmo tempo que há um grande interesse acadêmico no assunto, a se destacar que x\% dos papers da importante CVRP\footnote{Conference on Computer Vision and Pattern Recognition} de 2018 usam TL, 
-a maioria das aplicações comerciais ainda não utilizam a técnica. 
+Há um grande interesse acadêmico no assunto, a se destacar, por exemplo, que nas últimas duas edições, 2018 e 2017, da importante CVRP\footnote{Conference on Computer Vision and Pattern Recognition}, trabalhos sobre TL ganharam o prêmio de melhor \textit{paper}. Entretanto, TL ainda é tratada de uma forma \textit{ad hoc} e, apesar de alguns notáveis esforços, carece de arcabouço teórico.
+
+Machine Learning tem como inspiração a biologia humana e estudos mais recentes demonstram correspondência entre padrões aprendidos por redes neurais convolucionais e aqueles compreendidos por animais. Entretanto, praticamente não há referência aos estudos psicológicos do aprendizado humano como inspiração para Transferência de Aprendizado e há por demais evidências que humanos têm uma enorme capacidade de generalização, de se adaptar a novos cenários. Há algo ainda incompreendido no \textit{"software"} humano que se reflete nessa extraordinária e eficiente capacidade de transferir aprendizado de experiências passadas para novos desafios, mas o que já sabemos sobre o aprendizado humano é bem capaz de trazer novos \textit{insights} para ML e valem ser estudados sob este novo prisma.
 
 
 
@@ -113,70 +121,124 @@ a maioria das aplicações comerciais ainda não utilizam a técnica.
 
 \section{Objetivos}
 
-The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
-
-The main take a way is that tackling an important problem is an attention grabber. 
-
-This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
-
-I believe it is worth investigating this problem and maybe trying to use the insight
+O objetivo geral do presente projeto é desenvolver e investigar métodos de transferência de aprendizado para problemas de visão computacional. Espera-se criar métodos mais versáteis e eficientes, requerendo menos dados para serem treinados.
+\subsection{Objetivos específicos}
+Como objetivos específicos, pretende-se:
+\begin{itemize}
+\item Investigar e reproduzir pesquisas recentes em:
+\begin{itemize}
+  \item \textit{self-supervised learning};
+  \item \textit{multi-task learning};
+  \item \textit{domain-adaptation}, com interesse especial em adaptação de dados sintéticos;
+  \item \textit{selection bias shift};
+  \item \textit{meta-learning};
+  \item \textit{weakly-supervised learning};
+  \item \textit{one-shot learning} e \textit{few-shots learning};
+  \item \textit{Generative Adversarial Networks} e suas implicações para TL;
+  \item \textit{learning theoretic};
+\end{itemize}
+\item Classificar, organizar e diferenciar os diferentes métodos existentes de transferência de aprendizado;
+\item Estudar as principais teorias psicológicas sobre aquisição de aprendizado em humanos; 
+\item Propor novos métodos de transferência de aprendizado;
+\item Publicar papers em revistas e conferências.
+\end{itemize}
 
 %------------------------------------------------
 
 \section{Revisão da Literatura}
 
-\begin{itemize}
+% Colocar a parte teórica da Survey do Pan. Mencionar Taskonomy, Gabriela, Learn to Learn, capítulo de TL da Universidade de Washington.  
 
 
-  \item recente: cvpr 2018  \item> tranfer learning. survey ultrapassada.
-  \item taskonomy
-\end{itemize}
-
-
-
-The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
-
-The main take a way is that tackling an important problem is an attention grabber. 
-
-This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
-
-I believe it is worth investigating this problem and maybe trying to use the insight
 
 %------------------------------------------------
 
 \section{Metodologia}
 
-The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
-
-The main take a way is that tackling an important problem is an attention grabber. 
-
-This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
-
-I believe it is worth investigating this problem and maybe trying to use the insight
+Não sei bem o que fazer. 
 
 %------------------------------------------------
 
 \section{Plano de Trabalho}
 
-The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
+As seguintes tarefas serão executadas no desenvolvimento deste projeto:
+\begin{enumerate}
+  \item Atualização do Conhecimento sobre TL e áreas correlatas na Ciência da Computação:
+  \begin{enumerate}
+    \item Revisão bibliográfica para atualização com o estado-da-arte nas áreas relacionadas ao projeto.
+    \item Avaliação, instalação e adaptação a ferramentas de desenvolvimento que possam ser aplicadas ao projeto.
+    \item Definição das pesquisas candidatas a serem reproduzidas.
+    \item Relatório técnico da revisão bibliográfica de Ciência da Computação.
+  \end{enumerate}
 
-The main take a way is that tackling an important problem is an attention grabber. 
-
-This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
-
-I believe it is worth investigating this problem and maybe trying to use the insight
+  \item Estudo de áreas correlatas externas à Ciência da Computação:
+  \begin{enumerate}
+    \item Desenvolvimento cognitivo em crianças.
+    \item Cognição visual em humanos.
+    \item Espistemologia.
+    \item Ética
+    \item Relatório técnico da revisão bibliográfica externa à Ciência da Computação.
+  \end{enumerate}
+  \item Domain Adaptation, Synthetic datasets, GANs
+  \begin{enumerate}
+    \item Reprodução de experimentos.
+    \item Relatório Técnico.
+  \end{enumerate}
+  \item Primeiro Paper
+  \begin{enumerate}
+    \item Projeto
+    \item Desenvolvimento
+    \item Avaliações Experimentais
+    \item Análise
+    \item Escrita
+  \end{enumerate}
+  \item Mult-task Learning, Self-suvervised Learning
+  \begin{enumerate}
+    \item Reprodução de experimentos.
+    \item Relatório Técnico.
+  \end{enumerate}
+  \item One-Shot Learning, Few-Shots Learning, Weakly Supervised Learning
+  \begin{enumerate}
+    \item Reprodução de experimentos.
+    \item Relatório Técnico.
+  \end{enumerate}
+  \item Segundo Paper
+  \begin{enumerate}
+    \item Projeto
+    \item Desenvolvimento
+    \item Avaliações Experimentais
+    \item Análise
+    \item Escrita
+  \end{enumerate}
+  \item Learning Theoretic, Meta-Learning
+  \begin{enumerate}
+    \item Reprodução de experimentos.
+    \item Relatório Técnico.
+  \end{enumerate}
+  \item Primeiro esboço da Tese
+  \begin{enumerate}
+    \item Escrita
+  \end{enumerate}
+  \item Terceiro Paper
+  \begin{enumerate}
+    \item Projeto
+    \item Desenvolvimento
+    \item Avaliações Experimentais
+    \item Análise
+    \item Escrita
+  \end{enumerate}
+  \item Tese
+  \begin{enumerate}
+    \item Escrita
+  \end{enumerate}
+\end{enumerate}
 
 %------------------------------------------------
 
 \section{Cronograma}
 
-The authors were successful in advertising a promising idea in a very relevant problem.  Due to weaknesses of the research, it is intriguing that it has already being cited 10 times and accepted to CVPR, whilst only in the Workshop, anyway. The fact it was sponsored by NVIDIA may explain some of this.
-
-The main take a way is that tackling an important problem is an attention grabber. 
-
-This research could be better if it presented "apple to apples" comparisons. The insight is still relevant, though: domain adaptation by increasing variability of the input, what decreases the importance of the bias in the target domain of irrelevant features.
-
-I believe it is worth investigating this problem and maybe trying to use the insight
+Fazer.  A ideia é caber em 3 anos e meio, sendo que de 3 a 10, são 8 tarefas que eu estou imaginando levar 3 a 4 meses cada. De forma que se forem 4 meses, serão 32 meses, 2 anos e meio. 
+As tarefas 1 e 2 serão desenvolvidas ao longo dos anos. E a tarefa 11 deve durar um 6 meses.
 
 
 %

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.1)  11 NOV 2018 01:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.1)  15 NOV 2018 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/fredguth/PhD/PhDProposal/pre_projeto.tex
-(/home/fredguth/PhD/PhDProposal/pre_projeto.tex
+**/home/fredguth/Unb/PhD/PhDProposal/pre_projeto.tex
+(/home/fredguth/Unb/PhD/PhDProposal/pre_projeto.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 13 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -491,27 +491,47 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 93.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 93.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 93.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 93.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 93.
  [1]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 130.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 99.
+ [2]
+
+LaTeX Warning: Citation `ANg' on page 3 undefined on input line 111.
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 128.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
- [2] [3] (./pre_projeto.bbl) [4] (./pre_projeto.aux) ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 128.
+ [3] [4] [5] (./pre_projeto.bbl [6]) [7] (./pre_projeto.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2288 strings out of 494383
- 31116 string characters out of 6171728
- 102629 words of memory out of 5000000
- 5601 multiletter control sequences out of 15000+600000
- 12865 words of font info for 27 fonts, out of 8000000 for 9000
+ 2332 strings out of 494383
+ 31630 string characters out of 6171728
+ 103820 words of memory out of 5000000
+ 5633 multiletter control sequences out of 15000+600000
+ 23618 words of font info for 45 fonts, out of 8000000 for 9000
  432 hyphenation exceptions out of 8191
- 25i,5n,24p,867b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on pre_projeto.pdf (5 pages, 74737 bytes).
+ 25i,8n,24p,1024b,370s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on pre_projeto.pdf (8 pages, 125260 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
