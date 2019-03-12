@@ -1,36 +1,25 @@
-\begin{thebibliography}{1}
-
-\bibitem{goodfellow}
-Ian~J. Goodfellow, Yoshua Bengio, and Aaron~C. Courville.
-\newblock {\em Deep Learning}.
-\newblock Adaptive computation and machine learning. {MIT} Press, 2016.
-
-\bibitem{KHe}
-Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
-\newblock Delving deep into rectifiers: Surpassing human-level performance on
-  imagenet classification.
-\newblock {\em CoRR}, abs/1502.01852, 2015.
-
-\bibitem{horn}
-Grant~Van Horn and Pietro Perona.
-\newblock The devil is in the tails: Fine-grained classification in the wild.
-\newblock {\em CoRR}, abs/1709.01450, 2017.
-
-\bibitem{huang1996}
-T~Huang.
-\newblock Computer vision: Evolution and promise, 1996.
-
-\bibitem{alexnet}
-Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
-\newblock Imagenet classification with deep convolutional neural networks.
-\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
-  editors, {\em Advances in Neural Information Processing Systems 25}, pages
-  1097--1105. Curran Associates, Inc., 2012.
+\begin{thebibliography}{10}
 
 \bibitem{fei}
 J.~Deng L.~Fei-Fei.
 \newblock Where have we been? where are we going?, 2017.
 \newblock [Online; accessada 28 de Junho de 2018].
+
+\bibitem{skin_cancer_doi:10.1093/annonc/mdy166}
+H~A Haenssle, C~Fink, R~Schneiderbauer, F~Toberer, T~Buhl, A~Blum, A~Kalloo,
+  A~Ben~Hadj Hassen, L~Thomas, A~Enk, L~Uhlmann, Reader study~level I, and
+  level II~Groups.
+\newblock Man against machine: diagnostic performance of a deep learning
+  convolutional neural network for dermoscopic melanoma recognition in
+  comparison to 58 dermatologists.
+\newblock {\em Annals of Oncology}, 29(8):1836--1842, 2018.
+
+\bibitem{wifi}
+Mingmin Zhao, Tianhong Li, Mohammad Abu~Alsheikh, Yonglong Tian, Hang Zhao,
+  Antonio Torralba, and Dina Katabi.
+\newblock Through-wall human pose estimation using radio signals.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 7356--7365, 2018.
 
 \bibitem{Pan}
 Sinno~Jialin Pan and Qiang Yang.
@@ -38,11 +27,37 @@ Sinno~Jialin Pan and Qiang Yang.
 \newblock {\em IEEE Trans. on Knowl. and Data Eng.}, 22(10):1345--1359, October
   2010.
 
-\bibitem{fred}
-Saining Xie, Ross~B. Girshick, Piotr Doll{\'{a}}r, Zhuowen Tu, and Kaiming He.
-\newblock Aggregated residual transformations for deep neural networks.
-\newblock In {\em 2017 {IEEE} Conference on Computer Vision and Pattern
-  Recognition, {CVPR} 2017, Honolulu, HI, USA, July 21-26, 2017}, pages
-  5987--5995, 2017.
+\bibitem{goodfellow}
+Ian~J. Goodfellow, Yoshua Bengio, and Aaron~C. Courville.
+\newblock {\em Deep Learning}.
+\newblock Adaptive computation and machine learning. {MIT} Press, 2016.
+
+\bibitem{torrey}
+Lisa Torrey and Jude Shavlik.
+\newblock Transfer learning.
+\newblock In {\em Handbook of Research on Machine Learning Applications and
+  Trends: Algorithms, Methods, and Techniques}, pages 242--264. IGI Global,
+  2010.
+
+\bibitem{ANg}
+Andrew Ng.
+\newblock Nuts and bolts of applying deep learning, 2016.
+\newblock [Online; accessado 20 de novembro de 2018.].
+
+\bibitem{Thrun:1998:LL:296635}
+Sebastian Thrun and Lorien Pratt, editors.
+\newblock {\em Learning to Learn}.
+\newblock Kluwer Academic Publishers, Norwell, MA, USA, 1998.
+
+\bibitem{csurka2017domain}
+Gabriela Csurka.
+\newblock {\em Domain adaptation in computer vision applications}.
+\newblock Springer, 2017.
+
+\bibitem{deeptransferlearning}
+Chuanqi Tan, Fuchun Sun, Tao Kong, Wenchang Zhang, Chao Yang, and Chunfang Liu.
+\newblock A survey on deep transfer learning.
+\newblock In {\em International Conference on Artificial Neural Networks},
+  pages 270--279. Springer, 2018.
 
 \end{thebibliography}

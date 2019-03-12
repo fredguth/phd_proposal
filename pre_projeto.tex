@@ -39,7 +39,7 @@ onecolumn, % Alternatively twocolumn
 \begin{document}
 
 \pagestyle{myheadings} % Use custom headers
-\markright{Frederico Guth --- Transferência de Aprendizado para Visão Computacional} % Place the article information into the header
+\markright{Transferência de Aprendizado em Visão Computacional} % Place the article information into the header
 
 %----------------------------------------------------------------------------------------
 %	PRINT ARTICLE INFORMATION
@@ -49,24 +49,24 @@ onecolumn, % Alternatively twocolumn
 
 \printcover % Print the title
 
-\begin{center}
+% \begin{center}
 
-  \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+%   \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
 
-  \bigskip
+%   \bigskip
 
-  \textbf{\Large{\doctitle}}
+%   \textbf{\Large{\doctitle}}
   
-  \bigskip
+%   \bigskip
   
-  \docauthor
+%   \docauthor
 
-  \bigskip
+%   \bigskip
   
 
-  \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+%   \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 
-\end{center}
+% \end{center}
 
 %----------------------------------------------------------------------------------------
 %	ARTICLE NOTES
@@ -80,40 +80,34 @@ onecolumn, % Alternatively twocolumn
 %------------------------------------------------
 \section{Introdução}
 
-Recentes avanços na área de Visão Computacional tornam possíveis aplicações que vêm merecendo atenção da mídia e público:  são capazes de reconher de pessoas, lugares e objetos com acurácia super-humana\cite{fei}, diagnósticar câncer de pele tão bem quanto dermatologistas\cite{fred}, segmentar semanticamente cenas em tempo real para carros autônomos, localizar tumores em imagens de ressonância magnética, ver através de paredes usando sinais de rádio, entre tantas outras. Tal avanço apresenta um contraste extremo com como a comunidade se via há apenas 10 ou 20 anos: 
-\begin{quote}"Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante" \hfill ---T. S. Huang,  1996 \cite{huang1996}.  \end{quote}
+Recentes avanços na área de Visão Computacional tornam possíveis aplicações que são capazes de reconher pessoas, lugares e objetos com acurácia super-humana \cite{fei}, diagnosticar câncer de pele tão bem quanto dermatologistas \cite{skin_cancer_doi:10.1093/annonc/mdy166},  ver através de paredes usando sinais de rádio \cite{wifi}, entre tantas outras. 
 
-O momento crucial para tal metórico progresso foi o resultado de Alex Krizhevsky et al.\cite{alexnet} no desafio \textit{ImageNet Large Scale Visual Recognition Challenge}  (ILSVRC) de 2012 \cite{goodfellow}. Em 8 anos de ILSVRC, o erro no reconhecimento de objetos diminuiu uma ordem de magnitude\cite{fei} e, em 2017, chegou a apenas 2,3\% (menos da metade do erro humano \cite{KHe}). Três desenvolvimentos simultâneos possibilitaram tal feito\cite{horn}: 
-\begin{enumerate*}[label=(\alph*)]
-  \item redes convolucionais profundas, em que características visuais (\textit{features}) são aprendidas dos dados ao invés de manualmente elaboradas;
-  \item barateamento do custo computacional para treinamento de algoritmos;
-  \item construção de bancos de imagens de larga escala com milhões de imagens e milhares de classes bem anotadas. 
-\end{enumerate*}
 
-Neste contexto, é compreensível se iludir com o sensacionalismo e até pensar que Aprendizado Profundo (DL\footnote{do inglês, Deep Learning}) para Visão Computacional seja uma área "resolvida" e que agora virá um novo "inverno" no progresso de Aprendizado de Máquina (ML \footnote{do inglês, Machine Learning})\textemdash longe disso. Os melhores casos de sucesso foram desenvolvidos exclusivamente para uma tarefa, em um único domínio, ou seja, sobre a premissa básica que na prática, os dados com os quais o modelo será testado são do mesmo espaço de características (\textit{feature space}) e possuem a mesma distribuição que os dados de treinamento\cite{Pan}. Em outras palavras, temos algoritmos cada vez melhores que aprendem a encontrar padrões a partir de uma grande quantidade de dados rotulados, mas que ainda são deficientes na capacidade de generalizar para condições diferentes daquelas encontradas no treinamento. 
+Neste contexto, é compreensível se iludir com o sensacionalismo e até pensar que Aprendizado Profundo (DL\footnote{Deep Learning}) seja uma área "resolvida" \textemdash longe disso. Os melhores casos de sucesso foram desenvolvidos exclusivamente para uma tarefa, em um único domínio; sobre a premissa básica que os dados com os quais o modelo será testado são do mesmo espaço de características e possuem a mesma distribuição que os dados de treinamento \cite{Pan}. Em outras palavras, temos algoritmos cada vez melhores em encontrar padrões em uma grande quantidade de dados rotulados, mas ainda deficientes na capacidade de generalizar para condições diferentes daquelas encontradas no treinamento. 
 
-Ao mesmo tempo que bancos de imagens de larga escala são um dos componentes chave para progresso, cada vez mais a necessidade de dados são um fator limitante para aplicação prática de inteligência artificial.  Uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição de cauda longa, o que torna bastante difícil a coleta representativa de dados. Há também o  alto custo de rotulação: em diversas áreas de aplicação, e.g. na medicina, dados bem rotulados são extremamente difíceis de serem obtidos e pode-se levar anos para obter poucas dezenas de amostras. O mundo real é variado, os modelos encontrarão, na prática, diversos cenários para os quais não foram treinados.
+% Ao mesmo tempo que bancos de imagens de larga escala são um dos componentes chave para progresso obtido nos últimos anos, cada vez mais a necessidade de dados são um fator limitante para aplicações práticas.  Uma quantidade importante de comportamentos da natureza e atividades humanas obedecem a uma distribuição de cauda longa, o que torna bastante difícil a coleta representativa de dados. Há também o  alto custo de rotulação: em diversas áreas de aplicação, e.g. na medicina, dados bem rotulados são extremamente difíceis e levam anos para serem obtidos em pequena quantidade. 
 
-Transferência de aprendizado (TL\footnote{do inglês, \textit{Transfer Learning}}), nos permite lidar com a insuficiência de dados para treinamento, usando conhecimento adquirido em um outro domínio ou tarefa. Essa capacidade é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com um mundo cauda longa, precisamos aprender a tranferir aprendizado.
+Transferência de Aprendizado (TL\footnote{Transfer Learning}) é a área que pesquisa como armazenar conhecimento adquirido em um domínio ou tarefa e aplicá-lo a um novo problema. Essa capacidade permite lidar com a insuficiência de dados rotulados e é absolutamente necessária para o uso de inteligência artificial em larga escala que vai além das tarefas e domínios para os quais a disponibilidade de dados rotulados é ambundante. Em outras palavras, apesar de todo o sucesso, os modelos atuais atacam apenas os casos fáceis em termos de disponibilidade de dados. Para lidar com a variabilidade cauda longa do mundo, precisamos aprender a tranferir aprendizado.
 
-\subsection{Definição Formal}
-Transferência de Aprendizado envolve os conceitos de \textit{domínio} e \textit{tarefa}. Seguindo a notação de \cite{Pan}, um domínio $\mathcal{D}$ é composto de um espaço de características $\mathcal{X}\subset R^d$ e uma distribuição marginal $P(\mathrm{X})$, onde $\mathrm{X}=\{x_1, \dots, x_n\}\in\mathcal{X} $. Para um problema de classificação de imagens, por exemplo, $\mathcal{X}$ é o espaço de todas possíveis representações de imagens, com suas dimensões e canais, $x_i$ é uma imagem e $X$ é o \textit{dataset} de treinamento. 
+% \subsection{Definição Formal}
+% Transferência de Aprendizado envolve os conceitos de \textit{domínio} e \textit{tarefa}. Seguindo a notação de \cite{Pan}, um domínio $\mathcal{D}$ é composto de um espaço de características $\mathcal{X}\subset R^d$ e uma distribuição marginal $P(\mathrm{X})$, onde $\mathrm{X}=\{x_1, \dots, x_n\}\in\mathcal{X} $. Para um problema de classificação de imagens, por exemplo, $\mathcal{X}$ é o espaço de todas possíveis representações de imagens, com suas dimensões e canais, $x_i$ é uma imagem e $X$ é o \textit{dataset} de treinamento. 
 
-Dado um domínio $\mathcal{D}=\{\mathcal{X}, P(X)\}$, uma tarefa $\mathcal{T}$ é definida pelo espaço de rótulos $\mathcal{Y}$ com distribuição condicional $P(\mathrm{Y}|\mathrm{X})$, ou seja, $\mathcal{T}=\{\mathcal{Y}, f(\cdot)\}$, onde $f(\cdot)$ é uma função objetivo que dado um $x_i \in \mathcal{D}$, prediz seu correspondente $y_i \in \mathcal{Y}$. 
+% Dado um domínio $\mathcal{D}=\{\mathcal{X}, P(X)\}$, uma tarefa $\mathcal{T}$ é definida pelo espaço de rótulos $\mathcal{Y}$ com distribuição condicional $P(\mathrm{Y}|\mathrm{X})$, ou seja, $\mathcal{T}=\{\mathcal{Y}, f(\cdot)\}$, onde $f(\cdot)$ é uma função objetivo que dado um $x_i \in \mathcal{D}$, prediz seu correspondente $y_i \in \mathcal{Y}$. 
 
-Dado um domínio fonte $\mathcal{D_S}$ e uma tarefa $\mathcal{T_S}$, um domínio destino $\mathcal{D_T}$ e uma tarefa $\mathcal{T_T}$, \textbf{transferência de aprendizado} objetiva auxiliar o aprendizado da função de predição $f_T(\cdot)$ em  $\mathcal{D_T}$ usando conhecimento de $\mathcal{D_S}$ e $\mathcal{T_S}$, onde $\mathcal{D_S}\neq\mathcal{D_T}$ ou $\mathcal{T_S}\neq\mathcal{T_T}$.
+% Dado um domínio fonte $\mathcal{D_S}$ e uma tarefa $\mathcal{T_S}$, um domínio destino $\mathcal{D_T}$ e uma tarefa $\mathcal{T_T}$, \textbf{transferência de aprendizado} objetiva auxiliar o aprendizado da função de predição $f_T(\cdot)$ em  $\mathcal{D_T}$ usando conhecimento de $\mathcal{D_S}$ e $\mathcal{T_S}$, onde $\mathcal{D_S}\neq\mathcal{D_T}$ ou $\mathcal{T_S}\neq\mathcal{T_T}$.
 
 
 %------------------------------------------------
 
 \section{Justificativa}
-O inconteste sucesso obtido nos últimos anos com aplicações de ML teve como principal motor o uso de aprendizado supervisionado em redes neurais profundas. Este paradigma é dependente da disponibilidade de dados bem rotulados que são caros e difíceis de obter. A próxima fronteira está em lidar com problemas para os quais há insuficiência de dados rotulados. Isso leva a especialistas da área a eleger TL como um dos campos mais promissores para o futuro:
+Humanos e animais conseguem aprender com poucas amostras \cite{goodfellow} e apresentam extraordinária capacidade de generalização que os algoritmos de DL ainda estão longe de alcançar. Tal fato é prova que há grande potencial ainda inalcançado na área de TL. Na prática, TL ainda é tratada de uma forma \textit{ad hoc}, sendo os métodos de transferências meras extensões dos algoritmos de aprendizado utilizados \cite{torrey}.
+
+Essa dicotomia entre a importância do problema e a inexistência de práticas e teorias consolidadas, tornam TL um campo promissor e interessante para pesquisa.  Opinião essa compartilhada por especialistas renomados:
 \begin{quote} "Transferência de Aprendizado será o próximo motor do sucesso comercial com Aprendizado de Máquinas." \hfill ---Andrew Ng, Tutorial NIPS 2016 \cite{ANg}
 \end{quote}
+% Tal avanço apresenta um contraste extremo com como a comunidade se via há 20 anos: 
+% \begin{quote}"Apesar de como campo de pesquisa, [Visão Computacional] apresentar problemas interessantes e desafiadores, em termos de aplicações práticas bem sucedidas é decepcionante" \hfill ---T. S. Huang,  1996 \cite{huang1996}.  \end{quote}
 
-Há um grande interesse acadêmico no assunto, a se destacar, por exemplo, que nas últimas duas edições, 2018 e 2017, da importante CVRP\footnote{Conference on Computer Vision and Pattern Recognition}, trabalhos sobre TL ganharam o prêmio de melhor \textit{paper}. Entretanto, TL ainda é tratada de uma forma \textit{ad hoc} e, apesar de alguns notáveis esforços, carece de arcabouço teórico.
-
-Machine Learning tem como inspiração a biologia humana e estudos mais recentes demonstram correspondência entre padrões aprendidos por redes neurais convolucionais e aqueles compreendidos por animais. Entretanto, praticamente não há referência aos estudos psicológicos do aprendizado humano como inspiração para Transferência de Aprendizado e há por demais evidências que humanos têm uma enorme capacidade de generalização, de se adaptar a novos cenários. Há algo ainda incompreendido no \textit{"software"} humano que se reflete nessa extraordinária e eficiente capacidade de transferir aprendizado de experiências passadas para novos desafios, mas o que já sabemos sobre o aprendizado humano é bem capaz de trazer novos \textit{insights} para ML e valem ser estudados sob este novo prisma.
 
 
 
@@ -126,19 +120,12 @@ O objetivo geral do presente projeto é desenvolver e investigar métodos de tra
 Como objetivos específicos, pretende-se:
 \begin{itemize}
 \item Investigar e reproduzir pesquisas recentes em:
-\begin{itemize}
+\begin{enumerate*}[label=(\alph*)]
   \item \textit{self-supervised learning};
-  \item \textit{multi-task learning};
   \item \textit{domain-adaptation}, com interesse especial em adaptação de dados sintéticos;
-  \item \textit{selection bias shift};
-  \item \textit{meta-learning};
-  \item \textit{weakly-supervised learning};
-  \item \textit{one-shot learning} e \textit{few-shots learning};
-  \item \textit{Generative Adversarial Networks} e suas implicações para TL;
-  \item \textit{learning theoretic};
-\end{itemize}
-\item Classificar, organizar e diferenciar os diferentes métodos existentes de transferência de aprendizado;
-\item Estudar as principais teorias psicológicas sobre aquisição de aprendizado em humanos; 
+  \item \textit{zero-shot, one-shot} e \textit{few-shots learning};
+  \item \textit{Adversarial Transfer Learning};
+\end{enumerate*}
 \item Propor novos métodos de transferência de aprendizado;
 \item Publicar papers em revistas e conferências.
 \end{itemize}
@@ -146,101 +133,77 @@ Como objetivos específicos, pretende-se:
 %------------------------------------------------
 
 \section{Revisão da Literatura}
+Apesar de Transferência de Aprendizado ser uma técnica bastante utilizada em diversos artigos importantes, a literatura específica é desatualizada e inconsistente. 
 
-% Colocar a parte teórica da Survey do Pan. Mencionar Taskonomy, Gabriela, Learn to Learn, capítulo de TL da Universidade de Washington.  
+O livro \textit{Learning to Learn} \cite{Thrun:1998:LL:296635}, um compêndio  por Thrun e Pratt de diversos trabalhos do workshop NeurIPS de 1995, atualizado em 1998, apresenta o campo e, de certa forma, formaliza o início do estudo da área. Ainda hoje é um dos raros livros que se propõem a discutir especificamente Transferência de Aprendizado no contexto de Aprendizado de Máquinas. 
 
-
+O excelente artigo \textit{A Survey on Transfer Learning} \cite{Pan} de Pan e Young, é a principal referência há quase 10 anos, sendo utilizado como base em outros trabalhos \cite{csurka2017domain, goodfellow,deeptransferlearning}. Apesar de mostrar um panorama amplo, já mostra alguns sinais de desatualização devido a velocidade do progresso da área. Iniciativas recentes como \cite{deeptransferlearning} buscam atualizar o trabalho de \cite{Pan} tratando de desenvolvimentos recentes como \textit{adversarial based transfer learning}, mas se focam nos métodos de transferência para aprendizado profundo supervisionado.
 
 %------------------------------------------------
 
 \section{Metodologia}
 
-Não sei bem o que fazer. 
+A metodologia do projeto se baseia na leitura sistemática de artigos e livros sobre o assunto e reprodução experimental de resultados obtidos em trabalhos selecionados de Transferência de Aprendizado nas melhores conferências de Visão Computacional. 
+
+É esperado que a partir da reprodução de pequisa no estado-da-arte, extensões e novas abordagens possam ser pensadas com objetivo de publicação de novos artigos.
+
+Adicionalmente, espera-se que o proponente participe de congressos de seminários, sempre que possível, apresentando resultados obtidos.
 
 %------------------------------------------------
 
 \section{Plano de Trabalho}
 
-As seguintes tarefas serão executadas no desenvolvimento deste projeto:
+As seguintes tarefas serão executadadas no desenvolvimento deste projeto:
 \begin{enumerate}
-  \item Atualização do Conhecimento sobre TL e áreas correlatas na Ciência da Computação:
-  \begin{enumerate}
-    \item Revisão bibliográfica para atualização com o estado-da-arte nas áreas relacionadas ao projeto.
+  \item Atualização do Conhecimento sobre TL:
+  \begin{enumerate*}
+    \item Revisão bibliográfica
     \item Avaliação, instalação e adaptação a ferramentas de desenvolvimento que possam ser aplicadas ao projeto.
-    \item Definição das pesquisas candidatas a serem reproduzidas.
-    \item Relatório técnico da revisão bibliográfica de Ciência da Computação.
-  \end{enumerate}
+  \end{enumerate*}
+  \item Fine-tunning e Self-supervised Learning:
+  \begin{enumerate*}
+    \item Reprodução de experimentos
+    \item Relatório
+  \end{enumerate*}
+  \item Domain Adaptation, Synthetic datasets e GANs:
+  \begin{enumerate*}
+    \item Reprodução de experimentos
+    \item Relatório
+  \end{enumerate*}
 
-  \item Estudo de áreas correlatas externas à Ciência da Computação:
-  \begin{enumerate}
-    \item Desenvolvimento cognitivo em crianças.
-    \item Cognição visual em humanos.
-    \item Espistemologia.
-    \item Ética
-    \item Relatório técnico da revisão bibliográfica externa à Ciência da Computação.
-  \end{enumerate}
-  \item Domain Adaptation, Synthetic datasets, GANs
-  \begin{enumerate}
-    \item Reprodução de experimentos.
-    \item Relatório Técnico.
-  \end{enumerate}
-  \item Primeiro Paper
-  \begin{enumerate}
+\item Zero-Shot, One-Shot e Few-Shots Learning:
+  \begin{enumerate*}
+    \item Reprodução de experimentos
+    \item Relatório
+  \end{enumerate*}
+  \item Paper:
+  \begin{enumerate*}
     \item Projeto
     \item Desenvolvimento
     \item Avaliações Experimentais
     \item Análise
     \item Escrita
-  \end{enumerate}
-  \item Mult-task Learning, Self-suvervised Learning
-  \begin{enumerate}
-    \item Reprodução de experimentos.
-    \item Relatório Técnico.
-  \end{enumerate}
-  \item One-Shot Learning, Few-Shots Learning, Weakly Supervised Learning
-  \begin{enumerate}
-    \item Reprodução de experimentos.
-    \item Relatório Técnico.
-  \end{enumerate}
-  \item Segundo Paper
-  \begin{enumerate}
-    \item Projeto
-    \item Desenvolvimento
-    \item Avaliações Experimentais
-    \item Análise
+    \item Revisão
+  \end{enumerate*}
+  \item Dissertação
+  \begin{enumerate*}
     \item Escrita
-  \end{enumerate}
-  \item Learning Theoretic, Meta-Learning
-  \begin{enumerate}
-    \item Reprodução de experimentos.
-    \item Relatório Técnico.
-  \end{enumerate}
-  \item Primeiro esboço da Tese
-  \begin{enumerate}
-    \item Escrita
-  \end{enumerate}
-  \item Terceiro Paper
-  \begin{enumerate}
-    \item Projeto
-    \item Desenvolvimento
-    \item Avaliações Experimentais
-    \item Análise
-    \item Escrita
-  \end{enumerate}
-  \item Tese
-  \begin{enumerate}
-    \item Escrita
-  \end{enumerate}
+    \item Revisão do Orientador
+    \item Revisão do Autor
+  \end{enumerate*}
 \end{enumerate}
 
 %------------------------------------------------
 
 \section{Cronograma}
-
-Fazer.  A ideia é caber em 3 anos e meio, sendo que de 3 a 10, são 8 tarefas que eu estou imaginando levar 3 a 4 meses cada. De forma que se forem 4 meses, serão 32 meses, 2 anos e meio. 
-As tarefas 1 e 2 serão desenvolvidas ao longo dos anos. E a tarefa 11 deve durar um 6 meses.
-
-
+\begin{center}
+\includegraphics[
+    page=1,
+    width=0.8\textwidth,
+    height=\textheight,
+    keepaspectratio
+]{gantt.pdf}
+\end{center}
 %
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
